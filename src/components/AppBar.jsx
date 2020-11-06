@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import Text from './Text';
 import Constants from 'expo-constants';
 
@@ -15,9 +15,11 @@ const styles = StyleSheet.create({
 
 const AppBar = () => {
   return <View style={styles.container}>{/* ... */}
-            <Text color="appBar" fontWeight="appBar" fontSize="appBar" padding='appBar'>
+      <TouchableWithoutFeedback onPress={() => console.log('click!')}>
+             <Text color="appBar" fontWeight="appBar" fontSize="appBar" padding='appBar'>
                 Repositories
             </Text>
+      </TouchableWithoutFeedback>
         </View>;
 };
 
