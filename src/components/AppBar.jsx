@@ -7,19 +7,18 @@ import theme from '../theme';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Constants.statusBarHeight + 20,
+    paddingTop: Constants.statusBarHeight,
     backgroundColor: theme.backgroundColor.appBar
   },
-  // ...
 });
 
 const AppBar = () => {
-  return <View style={styles.container}>{/* ... */}
-      <TouchableWithoutFeedback onPress={() => console.log('click!')}>
+  return <View style={styles.container}>
+           <TouchableWithoutFeedback onPress={() => console.log('click!')}>
              <Text color="appBar" fontWeight="appBar" fontSize="appBar" padding='appBar'>
                 Repositories
             </Text>
-      </TouchableWithoutFeedback>
+          </TouchableWithoutFeedback>
         </View>;
 };
 
