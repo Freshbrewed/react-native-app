@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     color: theme.colors.primary,
   },
   colorTextAppBar: {
-      color: theme.colors.appBar
+    color: theme.colors.appBar
   },
   fontSizeSubheading: {
     fontSize: theme.fontSizes.subheading,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     fontWeight: theme.fontWeights.appBar,
   },
   textPaddingAppBar: {
-      padding: theme.paddingBottom.appBar
+    padding: theme.paddingBottom.appBar
   }
 });
 
