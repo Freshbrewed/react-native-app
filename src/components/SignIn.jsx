@@ -5,34 +5,21 @@ import Text from './Text';
 import FormikTextInput from './FormikTextInput';
 import theme from '../theme';
 
-const styles = StyleSheet.create({
-  flexContainer: {
-    display: 'flex'
-  },
-  inputButtons: {
-    padding: 20,
-    borderWidth: 1,
-    borderColor: theme.colors.textSecondary,
-    margin: 10,
-    borderRadius: 4,
-    fontSize: theme.fontSizes.inputPlaceholder
-  },
-  signButton: {
-    padding: 20,
-    borderWidth: 1,
-    borderColor: theme.colors.primary,
-    backgroundColor: theme.colors.primary,
-    margin: 10,
-    borderRadius: 4,
-    textAlign: 'center'
-  }
-
-});
+import * as yup from 'yup';
 
 const initialValues = {
   username: '',
   password: '',
 };
+
+const validationSchema = yup.object().shape({
+  username: yup
+  .string()
+  .required('Username is required.'),
+  password: yup
+  .string()
+  .required('Password is required.')
+});
 
 const SignInForm = ({ onSubmit }) => {
   return (
@@ -54,10 +41,39 @@ export const SignIn = () => {
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
+    <Formik 
+    initialValues={initialValues} 
+    onSubmit={onSubmit}
+    validationSchema={validationSchema}
+    >
       {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
     </Formik>
   );
 };
+
+
+
+const styles = StyleSheet.create({
+  flexContainer: {
+    display: 'flex'
+  },
+  inputButtons: {
+    padding: 20,
+    borderWidth: 1,
+    borderColor: theme.colors.textSecondary,
+    margin: 10,
+    borderRadius: 4,
+    fontSize: theme.fontSizes.inputPlaceholder
+  },
+  signButton: {
+    padding: 20,
+    borderWidth: 1,
+    borderColor: theme.colors.primary,
+    backgroundColor: theme.colors.primary,
+    margin: 10,
+    borderRadius: 4,
+  }
+
+});
 
 export default SignIn;
