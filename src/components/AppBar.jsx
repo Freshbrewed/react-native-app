@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.backgroundColor.appBar
   },
 });
-
+ 
 
 const AppBar = () => {
   return (
