@@ -28,7 +28,7 @@ const SignInForm = ({ onSubmit }) => {
       <FormikTextInput style={styles.inputButtons} name="password" placeholder="Password" secureTextEntry />
       <TouchableWithoutFeedback onPress={onSubmit}>
         <View style={styles.signButton}>
-          <Text color="appBar" fontWeight="appBar" fontSize="appBar">Sign in</Text>
+          <Text style={{textAlign: 'center'}} color="appBar" fontWeight="appBar" fontSize="appBar">Sign in</Text>
         </View>
       </TouchableWithoutFeedback>
     </View>

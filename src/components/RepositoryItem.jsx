@@ -9,11 +9,7 @@ const styles = StyleSheet.create({
     display: 'flex',
   },
   flexItemRow: {
-    flexGrow: 1,
-    justifyContent: 'space-evenly',
     flexDirection: 'row',
-    // flexWrap: 'wrap',
-
   },
   flexLastItemRow: {
     flexGrow: 1,
@@ -22,20 +18,16 @@ const styles = StyleSheet.create({
     paddingBottom: 15
   },
   flexItemCol: {
-    flexGrow: 0,
     flexDirection: 'column',
-
+    justifyContent: 'flex-start',
+    flexShrink: 1,
+    paddingLeft: 10
   },
-  alignWithLogo: {
-    flexGrow: 1,
-    flexDirection: 'column',
+  logo: {
     paddingTop: 20,
     paddingLeft: 20,
-    justifyContent: 'space-evenly',
   },
   languageDisplay: {
-    flexGrow: 0,
-    flexDirection: 'column',
     borderWidth: 4,
     borderRadius: 4,
     margin: 5,
@@ -43,11 +35,9 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.primary,
   },
   languageWrapper: {
-    flexGrow: 1,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
-    paddingLeft: 80,
-    paddingBottom: 10
+    paddingTop: 15,
+    paddingBottom: 10,
   }
 });
 
@@ -58,18 +48,20 @@ const formatter = (number) => {
 
 const RepositoryItem = ({ item }) => (
   <View style={styles.flexContainer}>
+
     <View style={styles.flexItemRow}>
       <DisplayLogo uriLink={item.ownerAvatarUrl} />
-      <View style={styles.alignWithLogo}>
-        <Text fontWeight="bold"> {item.fullName}</Text>
-        <Text color="textSecondary"> {item.description}</Text>
+      <View style={styles.flexItemCol}>
+        <Text style={{ paddingTop: 20 }} fontWeight="bold"> {item.fullName}</Text>
+        <Text style={{ paddingTop: 5 }} color="textSecondary" > {item.description}</Text>
+        <View style={styles.languageWrapper}>
+          <View style={styles.languageDisplay}>
+            <Text color="appBar" fontWeight="bold" fontSize="subheading"> {item.language}</Text>
+          </View>
+        </View>
       </View>
     </View>
-    <View style={styles.languageWrapper}>
-      <View style={styles.languageDisplay}>
-        <Text color="appBar" fontWeight="bold" fontSize="subheading"> {item.language}</Text>
-      </View>
-    </View>
+
     <View style={styles.flexLastItemRow}>
       <View style={styles.flexItemCol}>
         <Text fontWeight="bold">{formatter(item.stargazersCount)}</Text>
@@ -80,7 +72,7 @@ const RepositoryItem = ({ item }) => (
         <Text color="textSecondary">Forks</Text>
       </View>
       <View style={styles.flexItemCol}>
-        <Text fontWeight="bold">{item.reviewCount}</Text>
+        <Text style={{ textAlign: 'center' }} fontWeight="bold">{item.reviewCount}</Text>
         <Text color="textSecondary">Reviews</Text>
       </View>
       <View style={styles.flexItemCol}>
