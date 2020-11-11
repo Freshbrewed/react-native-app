@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableWithoutFeedback, View, StyleSheet } from 'react-native';
+import {  View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Formik } from 'formik';
 import Text from './Text';
 import FormikTextInput from './FormikTextInput';
@@ -26,11 +26,11 @@ const SignInForm = ({ onSubmit }) => {
     <View style={styles.flexContainer}>
       <FormikTextInput style={styles.inputButtons} name="username" placeholder="Username" />
       <FormikTextInput style={styles.inputButtons} name="password" placeholder="Password" secureTextEntry />
-      <TouchableWithoutFeedback onPress={onSubmit}>
+      <TouchableOpacity onPress={onSubmit}>
         <View style={styles.signButton}>
           <Text style={{textAlign: 'center'}} color="appBar" fontWeight="appBar" fontSize="appBar">Sign in</Text>
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     </View>
   );
 };
