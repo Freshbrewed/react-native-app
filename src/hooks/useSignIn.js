@@ -27,7 +27,6 @@ const useSignIn = () => {
             apolloClient.resetStore();
         }
     };
-
     addToken();
     return [signIn, result];
 };

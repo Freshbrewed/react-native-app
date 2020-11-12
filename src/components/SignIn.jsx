@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Formik } from 'formik';
 import Text from './Text';
@@ -6,7 +6,7 @@ import FormikTextInput from './FormikTextInput';
 import theme from '../theme';
 import useSignIn from '../hooks/useSignIn';
 import { useHistory } from "react-router-native";
-
+import AuthStorageContext from '../contexts/AuthStorageContext';
 
 import * as yup from 'yup';
 
@@ -39,30 +39,26 @@ const SignInForm = ({ onSubmit }) => {
 };
 
 export const SignIn = () => {
+  const authStorage = useContext(AuthStorageContext);
   const [signIn] = useSignIn();
   let history = useHistory();
 
- // const [token, setToken] = useState();
-
-  /*useEffect(() => {
-    if (result.data) {
-      setToken(result.data.authorize.accessToken);
-    }
-  }, [result.data]);*/
-
   const onSubmit = async (values) => {
     const { username, password } = values;
-    try {  
+    try {
       await signIn({ username, password });
-      history.push('/');
     } catch (e) {
       console.log(e.message);
     }
   };
+  const isValidLogin = async () => {
+    const isLogged = await authStorage.getAccessToken();
+    if (isLogged) history.push('/');
+    return;
+  };
+  
+  isValidLogin();
 
- /* if (token !== undefined) {
-    console.log(token);
-  }*/
 
   return (
     <Formik

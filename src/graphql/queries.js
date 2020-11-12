@@ -32,3 +32,12 @@ mutation login($credentials: AuthorizeInput!) {
     }
   }
 `;
+
+export const IS_AUTHORIZED = gql`
+query {
+  authorizedUser {
+    id
+    username
+  }
+}
+`;
