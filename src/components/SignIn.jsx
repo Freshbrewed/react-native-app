@@ -5,6 +5,8 @@ import Text from './Text';
 import FormikTextInput from './FormikTextInput';
 import theme from '../theme';
 import useSignIn from '../hooks/useSignIn';
+import { useHistory } from "react-router-native";
+
 
 import * as yup from 'yup';
 
@@ -37,26 +39,30 @@ const SignInForm = ({ onSubmit }) => {
 };
 
 export const SignIn = () => {
-  const [signIn, result] = useSignIn();
-  const [token, setToken] = useState();
+  const [signIn] = useSignIn();
+  let history = useHistory();
 
-  useEffect(() => {
+ // const [token, setToken] = useState();
+
+  /*useEffect(() => {
     if (result.data) {
       setToken(result.data.authorize.accessToken);
     }
-  }, [result.data]);
+  }, [result.data]);*/
 
   const onSubmit = async (values) => {
     const { username, password } = values;
     try {  
       await signIn({ username, password });
+      history.push('/');
     } catch (e) {
       console.log(e.message);
     }
   };
 
-  console.log(token);
-
+ /* if (token !== undefined) {
+    console.log(token);
+  }*/
 
   return (
     <Formik
