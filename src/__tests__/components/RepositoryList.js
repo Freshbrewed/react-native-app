@@ -1,36 +1,6 @@
 import React from 'react';
-import RepositoryItem from '../../components/RepositoryItem';
-import { FlatList } from 'react-native';
-import useRepositories from '../../hooks/useRepositories';
 import { render } from '@testing-library/react-native';
-
-
-const RepositoryListContainer = ({ repositories }) => {
-  const repositoryNodes = repositories
-    ? repositories.edges.map((edge) => edge.node)
-    : [];
-
-  return (
-    <FlatList
-      data={repositoryNodes}
-      keyExtractor={item => item.id}
-      extraData={repositories}
-      renderItem={({ item }) => (
-        <RepositoryItem item={item} />
-      )
-      }
-    />
-  );
-};
-
-// eslint-disable-next-line no-unused-vars
-const RepositoryList = () => {
-  const { repositories } = useRepositories();
-  return <RepositoryListContainer repositories={repositories} />;
-};
-
-
-
+import { RepositoryListContainer } from '../../components/RepositoryList';
 
 describe('RepositoryList', () => {
   describe('RepositoryListContainer', () => {

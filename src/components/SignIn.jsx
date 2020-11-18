@@ -10,12 +10,12 @@ import AuthStorageContext from '../contexts/AuthStorageContext';
 
 import * as yup from 'yup';
 
-const initialValues = {
+ export const initialValues = {
   username: '',
   password: '',
 };
 
-const validationSchema = yup.object().shape({
+export const validationSchema = yup.object().shape({
   username: yup
     .string()
     .required('Username is required.'),
@@ -24,12 +24,12 @@ const validationSchema = yup.object().shape({
     .required('Password is required.')
 });
 
-const SignInForm = ({ onSubmit }) => {
+export const SignInContainer = ({ onSubmit }) => {
   return (
     <View style={styles.flexContainer}>
-      <FormikTextInput style={styles.inputButtons} name="username" placeholder="Username" />
-      <FormikTextInput style={styles.inputButtons} name="password" placeholder="Password" secureTextEntry />
-      <TouchableOpacity onPress={onSubmit}>
+      <FormikTextInput style={styles.inputButtons} name="username" placeholder="Username" testID="username" />
+      <FormikTextInput style={styles.inputButtons} name="password" placeholder="Password" secureTextEntry testID="password"/>
+      <TouchableOpacity onPress={onSubmit} testID="submit">
         <View style={styles.signButton}>
           <Text style={{ textAlign: 'center' }} color="appBar" fontWeight="appBar" fontSize="appBar">Sign in</Text>
         </View>
@@ -65,11 +65,22 @@ export const SignIn = () => {
       onSubmit={onSubmit}
       validationSchema={validationSchema}
     >
-      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
+      {({ handleSubmit }) => <SignInContainer onSubmit={handleSubmit} />}
     </Formik>
   );
 };
 
+/*const InitialForm = ({initialValues, onSubmit, validationSchema}) => {
+  return (
+    <Formik
+    initialValues={initialValues}
+    onSubmit={onSubmit}
+    validationSchema={validationSchema}
+  >
+    {({ handleSubmit }) => <SignInContainer onSubmit={handleSubmit} />}
+  </Formik>
+  );
+};*/
 
 
 const styles = StyleSheet.create({
