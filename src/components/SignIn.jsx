@@ -56,9 +56,8 @@ export const SignIn = () => {
     if (isLogged) history.push('/');
     return;
   };
-  
-  isValidLogin();
 
+  isValidLogin();
 
   return (
     <Formik

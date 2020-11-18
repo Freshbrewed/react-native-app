@@ -21,8 +21,8 @@ const App = () => {
           <Main />
         </AuthStorageContext.Provider>
       </ApolloProvider>
-    </NativeRouter>
-  );
+    </NativeRouter>  
+    );
 };
 
 export default App;

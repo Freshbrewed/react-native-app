@@ -52,11 +52,11 @@ const RepositoryItem = ({ item }) => (
     <View style={styles.flexItemRow}>
       <DisplayLogo uriLink={item.ownerAvatarUrl} />
       <View style={styles.flexItemCol}>
-        <Text style={{ paddingTop: 20 }} fontWeight="bold"> {item.fullName}</Text>
-        <Text style={{ paddingTop: 5 }} color="textSecondary" > {item.description}</Text>
+        <Text style={{ paddingTop: 20 }} fontWeight="bold" testID="fullname"> {item.fullName}</Text>
+        <Text style={{ paddingTop: 5 }} color="textSecondary" testID="description" > {item.description}</Text>
         <View style={styles.languageWrapper}>
           <View style={styles.languageDisplay}>
-            <Text color="appBar" fontWeight="bold" fontSize="subheading"> {item.language}</Text>
+            <Text color="appBar" fontWeight="bold" fontSize="subheading" testID="language"> {item.language}</Text>
           </View>
         </View>
       </View>
@@ -64,19 +64,19 @@ const RepositoryItem = ({ item }) => (
 
     <View style={styles.flexLastItemRow}>
       <View style={styles.flexItemCol}>
-        <Text fontWeight="bold">{formatter(item.stargazersCount)}</Text>
+        <Text fontWeight="bold" testID="starCount">{formatter(item.stargazersCount)}</Text>
         <Text color="textSecondary">Stars</Text>
       </View>
       <View style={styles.flexItemCol}>
-        <Text fontWeight="bold">{formatter(item.forksCount)}</Text>
+        <Text fontWeight="bold" testID="forksCount">{formatter(item.forksCount)}</Text>
         <Text color="textSecondary">Forks</Text>
       </View>
       <View style={styles.flexItemCol}>
-        <Text style={{ textAlign: 'center' }} fontWeight="bold">{item.reviewCount}</Text>
+        <Text style={{ textAlign: 'center' }} fontWeight="bold" testID="reviewCount">{item.reviewCount}</Text>
         <Text color="textSecondary">Reviews</Text>
       </View>
       <View style={styles.flexItemCol}>
-        <Text fontWeight="bold">{item.ratingAverage}</Text>
+        <Text fontWeight="bold" testID="rating">{item.ratingAverage}</Text>
         <Text color="textSecondary">Rating</Text>
       </View>
     </View>
