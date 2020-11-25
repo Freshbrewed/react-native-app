@@ -2,12 +2,10 @@ import React from 'react';
 import RepositoryItem from './RepositoryItem';
 import { Text, FlatList, View, StyleSheet } from 'react-native';
 import useRepositories from '../hooks/useRepositories';
+import theme from '../theme';
 
 const styles = StyleSheet.create({
-  separator: {
-    height: 10,
-    backgroundColor: "#e1e4e8"
-  },
+  separator: theme.separator
 });
 
 export const RepositoryListContainer = ({ repositories, loading }) => {

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ScrollView, View, StyleSheet, TouchableOpacity } from 'react-native';
 import Text from './Text';
 import Constants from 'expo-constants';
-import { Link } from 'react-router-native';
+import { Link, useHistory } from 'react-router-native';
 import theme from '../theme';
 import userIsAuthorized from '../hooks/userIsAuthorized';
 import { useApolloClient } from '@apollo/client';
@@ -19,10 +19,12 @@ const AppBar = () => {
   const authStorage = useContext(AuthStorageContext);
   const { user, loading } = userIsAuthorized();
   const apolloClient = useApolloClient();
+  let history = useHistory();
 
   const handleLogout = async () => {
     await authStorage.removeAccessToken();
     apolloClient.resetStore();
+    history.push('/');
   };
 
   if (loading) {

@@ -84,9 +84,7 @@ export const SignIn = () => {
 
 
 const styles = StyleSheet.create({
-  flexContainer: {
-    display: 'flex'
-  },
+  flexContainer: theme.flexContainer,
   inputButtons: {
     padding: 20,
     borderWidth: 1,
@@ -103,7 +101,6 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 4,
   }
-
 });
 
 export default SignIn;

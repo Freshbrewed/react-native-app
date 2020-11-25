@@ -25,13 +25,6 @@ query {
   }
 }
 `;
-export const LOGIN = gql`
-mutation login($credentials: AuthorizeInput!) {
-  authorize(credentials: $credentials ) {
-    accessToken
-    }
-  }
-`;
 
 export const IS_AUTHORIZED = gql`
 query {
@@ -40,4 +33,26 @@ query {
     username
   }
 }
+`;
+
+export const GET_REPOSITORY = gql`
+query repository($id: ID!) {
+    repository(id: $id) {
+      ownerName
+      name
+      createdAt
+      fullName
+      reviewCount
+      ratingAverage
+      stargazersCount
+      watchersCount
+      forksCount
+      openIssuesCount
+      url
+      ownerAvatarUrl
+      description
+      language
+    }
+  }
+
 `;
