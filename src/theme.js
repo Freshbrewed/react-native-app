@@ -77,6 +77,12 @@ const theme = {
   separator: {
     height: 10,
     backgroundColor: "#e1e4e8"
+  },
+  ratingContainer: {
+    borderRadius: 4,
+    border: "4 solid #0366d6",
+    padding: 10,
+    borderColor: '#0366d6'
   }
 };
 

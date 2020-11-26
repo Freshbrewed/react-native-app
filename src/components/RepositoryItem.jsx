@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, /*Dimensions*/ } from 'react-native';
 import Text from './Text';
 import DisplayLogo from './DisplayLogo';
 import theme from '../theme';
@@ -15,11 +15,10 @@ const styles = StyleSheet.create({
   languageDisplay: theme.languageDisplay,
   languageWrapper: theme.languageWrapper,
   gitUrlDisplay: theme.gitLink,
-  separator: {
-    backgroundColor: theme.separator.backgroundColor,
-    height: Dimensions.get('window').height
-
-  }
+  separator: theme.separator//{
+   // backgroundColor: theme.separator.backgroundColor,
+   // height: Dimensions.get('window').height
+ // }
 });
 
 const formatter = (number) => {
